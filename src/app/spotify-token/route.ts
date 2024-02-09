@@ -8,7 +8,13 @@ export async function GET() {
         'method': 'POST'
     };
     const res = await fetch('https://accounts.spotify.com/api/token', requestOptions);
-    const data = await res.json();
+    const data = JSON.stringify(await res.json());
 
-    return Response.json(data);
+    const responseOptions = {
+        status: 200,
+        headers: {
+            "Set-Cookie": `token=${data}`
+        }
+    };
+    return new Response(JSON.stringify(data), responseOptions);
 };

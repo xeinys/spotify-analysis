@@ -4,17 +4,14 @@ import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
-    const [spotifyToken, setSpotifyToken] = useState({});
 
     useEffect(() => {
         fetch('/spotify-token').then(async (res: Response) => {
-            setSpotifyToken(await res.json());
+            fetch('/spotify-get-hellow-2-0');
         });
     }, []);
 
     return (
-        <main className={styles.main}>
-            {JSON.stringify(spotifyToken)}
-        </main>
+        <main className={styles.main}></main>
     );
 }
