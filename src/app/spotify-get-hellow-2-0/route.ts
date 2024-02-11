@@ -14,8 +14,5 @@ export async function GET(request: NextRequest) {
     const res = await fetch('https://api.spotify.com/v1/playlists/4zpg5G5hBuwbIVysbVxyLe', requestOptions);
     const data = await res.json();
 
-    console.log(data);
-    // GET TRACKS ENDPOINTS TO GET FULL LIST
-
     return Response.json(data);
 };
